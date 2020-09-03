@@ -20,10 +20,15 @@ dat<-filter(dat, SEX!="", Year!= " ", ALIGN!="")%>%
 ######################## THe following represents a graph of no. of appearances of marvel characters by years
 dat_count <- count(dat,Year)
 glimpse(dat_count)
-ggplot(data = dat_count, aes(Year,n))+
-  geom_line(color='dark green')+
+shrey2 <- ggplot(data = dat_count)+
+  geom_line(aes(Year,n),color='green')
   geom_point(color="red")
+shrey2 %>% ggplotly()
 
+library(plotly)
+shrey <- ggplot(data=dat_count,aes(n,fill=Year%>%as.factor()))+
+  geom_histogram(bins=15)
+shrey%>%ggplotly()
 ######################### The next graph : we will characterize the characters and create multiple plots
 dat_count <- count(dat,Year,ALIGN)                          ## we have added align variable here
 glimpse(dat_count)
