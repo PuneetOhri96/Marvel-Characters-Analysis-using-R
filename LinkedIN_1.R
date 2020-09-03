@@ -16,6 +16,7 @@ dat<-filter(dat, SEX!="", Year!= " ", ALIGN!="")%>%
   filter(!is.na(APPEARANCES),APPEARANCES>100)%>%
   arrange(desc(APPEARANCES)) ##arranging data in decreasing order of appearances
 
+
 ######################## THe following represents a graph of no. of appearances of marvel characters by years
 dat_count <- count(dat,Year)
 glimpse(dat_count)
